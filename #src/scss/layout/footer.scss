@@ -3,19 +3,35 @@
 
 .footer {
   background: #262626;
+  & .col-xs-12 {
+    padding: 0 15px;
+    @media (max-width: $breakpoint-md) {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+  }
   & .container-fluid {
     max-width: 1600px;
   }
   &-logo {
     display: flex;
     width: 250px;
+    @media (max-width: $breakpoint-xl) {
+      width: 200px;
+    }
+    @media (max-width: $breakpoint-lg) {
+      margin: auto auto 20px auto;
+    }
     & img {
       @include defaultIcon(contain);
     }
   }
   &-main {
     padding: 64px 0;
-    & .col-md-3:nth-child(2) {
+    @media (max-width: $breakpoint-lg) {
+      padding: 30px 0 0 0;
+    }
+    & .col-xs-12:nth-child(2) {
       & .footer-list {
         & li {
           position: relative;
@@ -41,10 +57,16 @@
     font-size: 20px;
     margin-bottom: 24px;
     color: $whiteColor;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 16px;
+    }
   } 
   &-list {
     max-width: 270px;
     font-family: 'CircularStd', sans-serif;
+    @media (max-width: $breakpoint-md) {
+      max-width: unset;
+    }
     & li {
       margin-bottom: 20px;
       & a {
@@ -94,9 +116,15 @@
   &-copyright {
     padding: 20px 0;
     justify-content: space-between;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
+    }
     &__text {
       color: $whiteColor;
       opacity: .5;
+      @media (max-width: $breakpoint-md) {
+        margin-top: 20px;
+      }
     }
     &__icons {
       display: flex;
