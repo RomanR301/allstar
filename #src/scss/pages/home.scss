@@ -1,3 +1,96 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
+.main-screen {
+  margin: 90px 0 80px 0;
+  & .row {
+    flex-direction: column;
+  }
+  & h1 {
+    text-align: center;
+    font-size: 64px;
+    margin-bottom: 86px;
+    font-family: 'CircularStd', sans-serif;
+  }
+  & img {
+    @include defaultIcon(contain);
+    margin-bottom: 26px;
+  }
+  & .app__description {
+    margin-bottom: 24px;
+  }
+}
+
+.home-tabs {
+  margin-bottom: 130px;
+}
+
+.tab-content {
+  & .row {
+    margin: 0;
+    @media (max-width: $breakpoint-lg) {
+      margin: 0 15px;
+    }
+  }
+  & img {
+    @include defaultIcon(contain);
+  }
+}
+
+.clients {
+  margin-bottom: 82px;
+  & .app__title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  &__list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  &__item {
+    margin: 0 25px;
+    & img {
+      @include transition(.3);
+      @include defaultIcon(contain);
+      filter: saturate(0%);
+      &:hover {
+        filter: unset;
+      }
+    }
+  }
+}
+
+.gallery {
+  margin-bottom: 110px;
+  &-heading {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &-listing {
+    & .column {
+      margin-bottom: 40px;
+    }
+  }
+  &__item {
+    display: block;
+    &:hover {
+      & .btn-link:before {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
+  &__image {
+    max-height: 530px;
+    margin-bottom: 26px;
+    & img {
+      @include defaultIcon(contain);
+    }
+  }
+  & .app__description {
+    margin-bottom: 26px;
+  }
+}

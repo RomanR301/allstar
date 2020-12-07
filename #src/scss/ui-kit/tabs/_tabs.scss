@@ -1,38 +1,35 @@
 .tabs { 
-  & .row {
-    width: 100%;
-    &.w-100 {
-      @media (max-width: $breakpoint-md) {
-        flex-direction: column-reverse;
-      }
-    }
-  }
   &-list {
     display: flex;
-    max-width: 70%;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
     @media (max-width: $breakpoint-lg) {
-      max-width: 100%;
+      flex-direction: column;
     }
     &__item {
+      margin: 0 20px;
       &_link {
-        margin: 3px;
+        color: #777777;
         display: block;
-        &.btn-primary {
-          @include transition(0.3);
-          background: $whiteColor;
-          // color: $defaultText;
-          cursor: pointer;
-          @media (max-width: $breakpoint-md) {
-            padding: 4px 12px;
-          }
-          &:hover {
-            // background: $defaultText;
-            color: $whiteColor;
-          }
-          &.active {
-            // background: $defaultText;
-            color: $whiteColor;
+        @include transition(.3);
+        cursor: pointer;
+        position: relative;
+        &:before {
+          content: '';
+          background: $redColor;
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          opacity: 0;
+          @include transition(.3);
+        }
+        &.active, &:hover {
+          color: $redColor;
+          &:before {
+            opacity: 1;
+            width: 100%;
           }
         }
       }
@@ -41,11 +38,6 @@
 
   &-wrap {
     width: 100%;
-    padding-top: 35px;
-    // overflow: hidden;
-    @media (max-width: $breakpoint-lg) {
-      max-width: unset;
-    }
     .tab-content {
       display: none;
       animation: fadeEffect .5s;
