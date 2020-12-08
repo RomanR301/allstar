@@ -1,2 +1,45 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
+
+.about {
+  margin-bottom: 100px;
+  &__heading {
+    margin: 100px 0 80px 0;
+    font-size: 54px;
+    text-align: center;
+    width: 100%;
+    @media (max-width: $breakpoint-lg) {
+      font-size: 34px;
+      margin: 60px 0 50px 0;
+    }
+    @media (max-width: $breakpoint-md) {
+      font-size: 24px;
+      margin: 30px 0;
+    }
+  }
+  &__image {
+    margin-bottom: 40px;
+    @media (max-width: $breakpoint-md) {
+      margin: 0 -15px 40px -15px;
+    }
+    & img {
+      @include defaultIcon(contain);
+    }
+  }
+  & .row {
+    justify-content: center;
+  }
+  & .app__title {
+    font-size: 24px;
+  }
+  &__content {
+    max-width: 70%;
+    color: #555555;
+    @media (max-width: $breakpoint-lg) {
+      max-width: 100%;
+    }
+    & p {
+      margin-bottom: 14px;
+    }
+  }
+}
